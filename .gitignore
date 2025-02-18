@@ -1,0 +1,47 @@
+# Xcode
+DerivedData/
+build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+!default.mode1v3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/README.md
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+
+# Custom Configuration Files
+*.xcconfig
+Secrets.plist
+
+# macOS system files
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Editor specific files
+*.swp
+*~
