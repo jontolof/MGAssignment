@@ -1,0 +1,62 @@
+{
+	"data": [
+		{
+			"id": "90",
+			"symbol": "BTC",
+			"name": "Bitcoin",
+			"nameid": "bitcoin",
+			"rank": 1,
+			"price_usd": "95949.05",
+			"percent_change_24h": "-0.50",
+			"percent_change_1h": "-0.31",
+			"percent_change_7d": "-1.92",
+			"price_btc": "1.00",
+			"market_cap_usd": "1901943128299.70",
+			"volume24": 27636894014.97289,
+			"volume24a": 18763849646.205612,
+			"csupply": "19822427.00",
+			"tsupply": "19822427",
+			"msupply": "21000000"
+		},
+		{
+			"id": "80",
+			"symbol": "ETH",
+			"name": "Ethereum",
+			"nameid": "ethereum",
+			"rank": 2,
+			"price_usd": "2744.39",
+			"percent_change_24h": "3.05",
+			"percent_change_1h": "-0.78",
+			"percent_change_7d": "3.51",
+			"price_btc": "0.028602",
+			"market_cap_usd": "330626215503.99",
+			"volume24": 16958053367.997076,
+			"volume24a": 8076017889.974456,
+			"csupply": "120473321.00",
+			"tsupply": "122375302",
+			"msupply": ""
+		},
+		{
+			"id": "58",
+			"symbol": "XRP",
+			"name": "XRP",
+			"nameid": "ripple",
+			"rank": 3,
+			"price_usd": "2.66",
+			"percent_change_24h": "-3.22",
+			"percent_change_1h": "-0.66",
+			"percent_change_7d": "9.61",
+			"price_btc": "0.000028",
+			"market_cap_usd": "153302775605.08",
+			"volume24": 3302448408.8244915,
+			"volume24a": 2378618602.5878687,
+			"csupply": "57641211234.00",
+			"tsupply": "99986586496",
+			"msupply": "100000000000"
+		},
+	],
+	"info": {
+		"coins_num": 3,
+		"time": 1739833808
+	}
+}
