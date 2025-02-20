@@ -19,16 +19,16 @@ struct CryptoCommunicatorTests {
     // We use the init function to setup the prerequisites for the all the
     // tests. In XCTest we would do this in setup() or setupWithErrors()
     init() {
-        let testBundle = Bundle(for: MockURLProtocol.self)
-        guard let mockURL = testBundle.url(forResource: "APIResponse", withExtension: "json"),
+        let testBundle = Bundle(for: MockCryptoURLProtocol.self)
+        guard let mockURL = testBundle.url(forResource: "CryptoAPIResponse", withExtension: "json"),
                 let data = try? Data(contentsOf: mockURL) else {
             fatalError("Could not find mock response file")
         }
         
-        MockURLProtocol.testData = data
+        MockCryptoURLProtocol.testData = data
         
         let config = URLSessionConfiguration.ephemeral
-        config.protocolClasses = [MockURLProtocol.self]
+        config.protocolClasses = [MockCryptoURLProtocol.self]
         let mockSession = URLSession(configuration: config)
         
         communicator = CryptoCommunicator(session: mockSession)

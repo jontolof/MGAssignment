@@ -14,6 +14,7 @@ class SwiftDataManager {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             CryptoItem.self,
+            ExchangeRate.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

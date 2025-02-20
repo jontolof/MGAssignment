@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "D729364B-65AF-488E-8121-E1AF8446A41B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MarshallCrypto.xcodeproj",
+      "identifier" : "28C2FA772D63401E00188223",
+      "name" : "MarshallCrypto"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MarshallCrypto.xcodeproj",
+        "identifier" : "28C2FA892D63401F00188223",
+        "name" : "MarshallCryptoTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MarshallCrypto.xcodeproj",
+        "identifier" : "28C2FA932D63401F00188223",
+        "name" : "MarshallCryptoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

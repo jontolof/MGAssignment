@@ -13,4 +13,5 @@ import Foundation
 // layer and it facilitates testing.
 protocol CryptoCommunicatorAPI {
     func getCryptoData() async throws -> CryptoResponse
+    func getCurrencyData() async throws -> CurrencyResponse
 }

@@ -13,7 +13,7 @@ struct MarshallCryptoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CryptoListView()
         }
         .modelContainer(SwiftDataManager.shared.sharedModelContainer)
     }

@@ -8,6 +8,7 @@
 import Foundation
 
 private let apiURL = "https://api.coinlore.net/api/tickers/"
+private let traderMadeAPIKey = "ANO60xYlKF7e1iGOjIxy"
 
 class CryptoCommunicator: CryptoCommunicatorAPI {
     static let shared = CryptoCommunicator()
@@ -24,6 +25,11 @@ class CryptoCommunicator: CryptoCommunicatorAPI {
     // type of getCryptoData
     func getCryptoData() async throws -> CryptoResponse {
         return try await fetchData(url: URL(string: apiURL)!)
+    }
+    
+    func getCurrencyData() async throws -> CurrencyResponse {
+        let url = URL(string: "https://marketdata.tradermade.com/api/v1/live?currency=USDSEK&api_key=" + traderMadeAPIKey)!
+        return try await fetchData(url: url)
     }
     
     // We create a Generic fetchData to minimize code and risk of error as we expand

@@ -1,0 +1,14 @@
+{
+  "endpoint": "live",
+  "quotes": [
+    {
+      "ask": 10.7382,
+      "base_currency": "USD",
+      "bid": 10.7352,
+      "mid": 10.7367,
+      "quote_currency": "SEK"
+    }
+  ],
+  "requested_time": "Wed, 19 Feb 2025 14:51:24 GMT",
+  "timestamp": 1739976684
+}
