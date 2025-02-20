@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+// A nifty enum based NavigationStack system.
+// Great because it is a scalable and easy way to handle
+// Navigation Routing where data injection is required, and
+// the resulting code is clean and clear.
 enum Router: Hashable {
     case home
     case cryptoDetails(itemId: Int)

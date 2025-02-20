@@ -7,6 +7,10 @@
 
 import Foundation
 
+
+// This follows the same strategy as the CryptoData. I am using my custom
+// CodingKeyes to decode timestamp to time. This requires me to implement the encode()
+// function as well.
 struct CurrencyResponse: Codable {
     enum CodingKeys: CodingKey {
         case quotes

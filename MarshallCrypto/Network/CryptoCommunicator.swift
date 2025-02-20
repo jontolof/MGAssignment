@@ -7,7 +7,8 @@
 
 import Foundation
 
-private let apiURL = "https://api.coinlore.net/api/tickers/"
+private let cryptoAPIURL = "https://api.coinlore.net/api/tickers/"
+private let currencyAPIURL = "https://marketdata.tradermade.com/api/v1/live?currency=USDSEK&api_key="
 private let traderMadeAPIKey = "ANO60xYlKF7e1iGOjIxy"
 
 class CryptoCommunicator: CryptoCommunicatorAPI {
@@ -24,11 +25,11 @@ class CryptoCommunicator: CryptoCommunicatorAPI {
     // The return type of the Generic fetchData is implied by the return
     // type of getCryptoData
     func getCryptoData() async throws -> CryptoResponse {
-        return try await fetchData(url: URL(string: apiURL)!)
+        return try await fetchData(url: URL(string: cryptoAPIURL)!)
     }
     
     func getCurrencyData() async throws -> CurrencyResponse {
-        let url = URL(string: "https://marketdata.tradermade.com/api/v1/live?currency=USDSEK&api_key=" + traderMadeAPIKey)!
+        let url = URL(string: currencyAPIURL + traderMadeAPIKey)!
         return try await fetchData(url: url)
     }
     

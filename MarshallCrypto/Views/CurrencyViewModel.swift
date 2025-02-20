@@ -8,6 +8,10 @@
 import Foundation
 import SwiftData
 
+// Same basic approach as in CryptoListViewModel, though this one is arguably
+// simpler. I like building architecture in similar fashion since it makes it easier
+// to follow once you've gotten the grip on the structure.
+
 @MainActor
 class CurrencyViewModel: ObservableObject {
     @Published var exchangeRate: ExchangeRate? = nil

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 // We build a CryptoCommunicatorAPI Protocol for our communicator to comply to.
 // This is a good practice as we can easily switch out our backend communications
 // layer and it facilitates testing.

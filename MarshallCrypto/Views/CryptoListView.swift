@@ -8,6 +8,12 @@
 import SwiftUI
 import SwiftData
 
+// The listing of the Crypto Currencies and the first view to be presented
+// to the user. This view has två ViewModels, CryptoModel to manage fetching
+// and persistence of the Crypto Data fetched from "https://api.coinlore.net/api/tickers/".
+// The currencyModel which handles fetching of exchange rates between SEK and USD,
+// provided by "https://marketdata.tradermade.com/api/". See Network folder with CryptoCommunicator
+// for more info.
 struct CryptoListView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject var navigationManager = NavigationManager()
@@ -17,7 +23,6 @@ struct CryptoListView: View {
     @State var presentingInfo: Bool = false
     @State private var currentDetent: PresentationDetent = .medium
     
-    
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             VStack {
@@ -25,14 +30,6 @@ struct CryptoListView: View {
                     Text("SEK").tag(0)
                     Text("USD").tag(1)
                 }.pickerStyle(.segmented)
-                
-//                if currencyModel.isLoading {
-//                    Text("Loading...")
-//                } else if currencyModel.exchangeRate != nil {
-//                    Text("SEK/USD: \(currencyModel.exchangeRate!.rate, specifier: "%.2f")")
-//                } else {
-//                    EmptyView()
-//                }
                 
                 Spacer()
                     .frame(maxHeight: 4.0)
@@ -128,8 +125,6 @@ struct CryptoRow: View {
         .frame(maxWidth: .infinity)
     }
 }
-
-
 
 #Preview {
     CryptoListView()

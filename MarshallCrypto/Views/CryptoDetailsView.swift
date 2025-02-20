@@ -8,6 +8,10 @@
 import SwiftUI
 import SwiftData
 
+// This Detail View lists rows of relevant data for the selected
+// Crypto. Creating a custom CryptoDetailsViewRow which uses
+// ViewBuilders for title and value, makes the code cleaner, yet
+// with full ability to customize.
 struct CryptoDetailsView: View {
     let cryptoId: Int
     @Query private var crypto: [CryptoItem]

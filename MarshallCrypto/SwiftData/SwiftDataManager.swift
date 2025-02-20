@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+// This class manages SwiftData, Contexts and Containers
 class SwiftDataManager {
     static let shared = SwiftDataManager()
     

@@ -9,6 +9,14 @@ import Foundation
 
 // Create data structures to hold the response from the CryptoAPI
 // Currently using "https://www.coinlore.com/cryptocurrency-data-api"
+
+// Worth noting: Normally when using the protocol Codable, you only need to match the
+// variable names with that of the API JSON. However, since I want to massage the result
+// and decode them into my own types, I need to do a little extra work and I have to
+// explicitly decode every parameter, even though only some of them needs that extra
+// love. See for example the conversion of String to Double of percent_change_1h et al.
+// In the CryptoData struct.
+
 struct CryptoResponse: Codable {
     var data: [CryptoData]
     var info: CryptoInfo
@@ -21,7 +29,7 @@ struct CryptoInfo: Codable {
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.coins_num = try container.decode(Int.self, forKey: .coins_num)
-        self.time = Date(timeIntervalSince1970: try container.decode(Double.self, forKey: .time))
+        self.time = Date(timeIntervalSince1970: try container.decode(Double.self, forKey: .time)) // Decoding timestamp to Date
     }
 }
 

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// An info-view with custom Detent implementation which changes
+// layout based on currentDetent. Fullscreen reveals MIT License.
 struct CryptoInfoView: View {
     @Binding var currentDetent: PresentationDetent
     

@@ -8,12 +8,15 @@
 import Foundation
 import SwiftData
 
+// This ViewModel is straight forward. Fetching data, store them in SwiftData.
+// The method loadData() sets the @Published var items, which triggers updates
+// of SwiftUI views where applicable.
+
 @MainActor
 class CryptoListViewModel: ObservableObject {
     @Published var items: [CryptoItem] = []
     @Published var isLoading: Bool = false
     @Published var error: Error? = nil
-    
     
     func fetch() {
         error = nil
