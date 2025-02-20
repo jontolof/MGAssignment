@@ -15,6 +15,7 @@ struct CryptoListView: View {
     @StateObject var currencyModel: CurrencyViewModel = .init()
     
     @State var presentingInfo: Bool = false
+    @State private var currentDetent: PresentationDetent = .medium
     
     
     var body: some View {
@@ -25,16 +26,16 @@ struct CryptoListView: View {
                     Text("USD").tag(1)
                 }.pickerStyle(.segmented)
                 
-                if currencyModel.isLoading {
-                    Text("Loading...")
-                } else if currencyModel.exchangeRate != nil {
-                    Text("SEK/USD: \(currencyModel.exchangeRate!.rate, specifier: "%.2f")")
-                } else {
-                    EmptyView()
-                }
+//                if currencyModel.isLoading {
+//                    Text("Loading...")
+//                } else if currencyModel.exchangeRate != nil {
+//                    Text("SEK/USD: \(currencyModel.exchangeRate!.rate, specifier: "%.2f")")
+//                } else {
+//                    EmptyView()
+//                }
                 
                 Spacer()
-                    .frame(maxHeight: 20.0)
+                    .frame(maxHeight: 4.0)
                 
                 if cryptoModel.items.isEmpty {
                     Button(action: {
@@ -69,7 +70,11 @@ struct CryptoListView: View {
                     Button {
                         presentingInfo.toggle()
                     } label: {
-                        Text("Info")
+                        Image("Saint-Guilhelm-Le-Desert")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .shadow(radius: 2.0, x: 1.0, y: 1.0)
                     }
                 }
             }
@@ -82,6 +87,10 @@ struct CryptoListView: View {
                 @unknown default:
                     fatalError()
                 }
+            }
+            .sheet(isPresented: $presentingInfo) {
+                CryptoInfoView(currentDetent: $currentDetent)
+                    .presentationDetents([.medium, .large], selection: $currentDetent)
             }
         }
         .onAppear {
