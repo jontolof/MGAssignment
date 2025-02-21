@@ -8,7 +8,6 @@
 import Foundation
 @testable import MarshallCrypto
 
-
 // MockURLProtocol is used to create a predictable input data for testing. In
 // this way we can verify the outputData of the Communicator based on a controlled
 // input environment. It's essential to let startLoading() call all the client's callbacks

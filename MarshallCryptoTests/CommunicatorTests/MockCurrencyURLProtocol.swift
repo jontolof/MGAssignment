@@ -8,6 +8,9 @@
 import Foundation
 @testable import MarshallCrypto
 
+// I create a separate MockCurrencyURLProtocol
+// to avoid runtime conflicts between the tests based
+// on MockCryptoURLProtocol.
 class MockCurrencyURLProtocol: URLProtocol {
     static var testData: Data?
     static var testResponse: URLResponse?
