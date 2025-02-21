@@ -27,6 +27,7 @@ struct CryptoDetailsView: View {
     }
     
     var body: some View {
+        ScrollView {
             VStack {
                 if let symbol = crypto.first?.symbol {
                     CryptoDetailsViewRow { Text("Symbol:").font(detailsFont) } valueView: { Text(symbol).font(detailsFont) }
@@ -64,7 +65,7 @@ struct CryptoDetailsView: View {
                                 .frame(width: 15, height: 15)
                                 .foregroundStyle(percentChange1h > 0 ? Color.green : Color.red)
                         }
-                            
+                        
                         Text("\(percentChange1h, specifier: "%.2f")%").font(detailsFont)
                     }
                 }
@@ -116,6 +117,7 @@ struct CryptoDetailsView: View {
                 Spacer()
             }
             .navigationTitle(crypto.first?.name ?? "")
+        }
     }
 }
 

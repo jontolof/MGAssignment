@@ -35,12 +35,19 @@ struct CryptoListView: View {
                     .frame(maxHeight: 4.0)
                 
                 if cryptoModel.items.isEmpty {
-                    Button(action: {
-                        cryptoModel.fetch()
-                        currencyModel.fetch()
-                    }) {
-                        Text("Fetch")
-                    }
+                    Spacer()
+                        .frame(height:150.0)
+                    
+                    Image(systemName: "square.and.arrow.down")
+                        .resizable()
+                        .frame(width: 100.0, height: 120.0)
+                        .symbolEffect(.bounce, options: .speed(0.5))
+                        .foregroundStyle(Color.blue)
+                        .onTapGesture {
+                            cryptoModel.fetch()
+                            currencyModel.fetch()
+                        }
+                    
                     Spacer()
                 } else {
                     ScrollView {
