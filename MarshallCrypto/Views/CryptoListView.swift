@@ -64,15 +64,18 @@ struct CryptoListView: View {
             .navigationTitle(Text("Crypto"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        presentingInfo.toggle()
-                    } label: {
-                        Image("Saint-Guilhelm-Le-Desert")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                            .shadow(radius: 2.0, x: 1.0, y: 1.0)
-                    }
+                    Image("Saint-Guilhelm-Le-Desert")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                        .shadow(radius: 2.0, x: 1.0, y: 1.0)
+                        .opacity(presentingInfo ? 0.1 : 1.0)
+                        .onTapGesture {
+                            withAnimation {
+                                presentingInfo.toggle()
+                            }
+                        }
+                        .animation(.default, value: presentingInfo)
                 }
             }
             .navigationDestination(for: Router.self) { router in

@@ -30,8 +30,8 @@ struct CryptoInfoView: View {
                 .frame(height: 40)
             
             if currentDetent == .large {
-                ScrollView {
-                    Text(Constants.mitLicence)
+                ScrollView(showsIndicators: false) {
+                    Text(Constants.mitLicence + "\n\nOS PROJECTS USED: " + Constants.osProjects)
                         .font(.caption)
                 }
             }

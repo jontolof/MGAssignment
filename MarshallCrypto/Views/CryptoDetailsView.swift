@@ -17,6 +17,7 @@ struct CryptoDetailsView: View {
     @Query private var crypto: [CryptoItem]
     @Query private var exchange: [ExchangeRate]
     let detailsFont: Font = .subheadline
+    @State private var isWiggling: Bool = false
     
     init(cryptoId: Int) {
         self.cryptoId = cryptoId
@@ -102,6 +103,14 @@ struct CryptoDetailsView: View {
                     Image(imageName)
                         .resizable()
                         .frame(width:128, height: 128.0)
+                        .wiggleAnimation(isAnimating: isWiggling)
+                        .onTapGesture {
+                            isWiggling.toggle()
+                            print("\(isWiggling ? "Animating" : "No animation")")
+                        }
+                        .onAppear {
+                            isWiggling.toggle()
+                        }
                 }
                 
                 Spacer()
@@ -124,7 +133,6 @@ struct CryptoDetailsViewRow<TitleContent: View, ValueContent: View>: View {
         .padding([.bottom, .top], 4.0)
     }
 }
-
 
 #Preview {
     CryptoDetailsView(cryptoId: 0)
