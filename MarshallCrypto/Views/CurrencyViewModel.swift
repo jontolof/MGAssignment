@@ -12,17 +12,33 @@ import SwiftData
 // simpler. I like building architecture in similar fashion since it makes it easier
 // to follow once you've gotten the grip on the structure.
 
+//@MainActor
+//class CurrencyViewModel: ObservableObject {
+//    @Published var exchangeRate: ExchangeRate? = nil
+//    @Published var isLoading: Bool = false
+//    @Published var error: Error? = nil
+//    
+//    @Published var currencyMultiplier: Double = 1.0
+//    @Published var selectedCurrency: Int = 1 {
 @MainActor
+@Observable
 class CurrencyViewModel: ObservableObject {
-    @Published var exchangeRate: ExchangeRate? = nil
-    @Published var isLoading: Bool = false
-    @Published var error: Error? = nil
+    private let communicator: CryptoCommunicatorAPI
     
-    @Published var currencyMultiplier: Double = 1.0
-    @Published var selectedCurrency: Int = 1 {
+    var exchangeRate: ExchangeRate? = nil
+    var isLoading: Bool = false
+    var error: Error? = nil
+
+    var currencyMultiplier: Double = 1.0
+    var selectedCurrency: Int = 1 {
         didSet {
             currencyMultiplier = selectedCurrency == 0 ? exchangeRate?.rate ?? 1.0 : 1.0
         }
+    }
+    
+    // Dependency injection instead of using singleton communicator.
+    init(communicator: CryptoCommunicatorAPI = CryptoCommunicator()) {
+        self.communicator = communicator
     }
     
     func fetch() {
@@ -40,7 +56,7 @@ class CurrencyViewModel: ObservableObject {
         let modelContext = SwiftDataManager.shared.backgroundContext
 
         do {
-            let currencyResponse = try await CryptoCommunicator.shared.getCurrencyData()
+            let currencyResponse = try await communicator.getCurrencyData()
             let item = ExchangeRate(currencyResponse: currencyResponse)
             modelContext.insert(item)
             try modelContext.save()
@@ -50,7 +66,7 @@ class CurrencyViewModel: ObservableObject {
         }
     }
     
-    @MainActor func loadExchangeRate() async {
+    func loadExchangeRate() async {
         let modelContext = SwiftDataManager.shared.context
         do {
             let allRates = try modelContext.fetch(FetchDescriptor<ExchangeRate>())

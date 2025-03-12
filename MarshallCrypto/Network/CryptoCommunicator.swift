@@ -12,8 +12,6 @@ private let currencyAPIURL = "https://marketdata.tradermade.com/api/v1/live?curr
 private let traderMadeAPIKey = "ANO60xYlKF7e1iGOjIxy"
 
 class CryptoCommunicator: CryptoCommunicatorAPI {
-    static let shared = CryptoCommunicator()
-    
     let session: URLSession
     
     // Inject the URLSession to make class testable

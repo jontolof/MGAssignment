@@ -17,8 +17,8 @@ import SwiftData
 struct CryptoListView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject var navigationManager = NavigationManager()
-    @StateObject var cryptoModel: CryptoListViewModel = .init()
-    @StateObject var currencyModel: CurrencyViewModel = .init()
+    @State var cryptoModel: CryptoListViewModel = .init()
+    @State var currencyModel: CurrencyViewModel = .init()
     
     @State var presentingInfo: Bool = false
     @State private var currentDetent: PresentationDetent = .medium
